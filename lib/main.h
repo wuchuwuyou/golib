@@ -75,6 +75,24 @@ extern void SayHelloByte(GoSlice p0);
 
 extern void SayBye();
 
+/* Return type for UserName */
+struct UserName_return {
+	GoString r0;
+	GoInterface r1;
+};
+
+extern struct UserName_return UserName(GoString p0);
+
+extern GoInterface FileExist(GoString p0);
+
+/* Return type for IsExist */
+struct IsExist_return {
+	GoUint8 r0;
+	GoInterface r1;
+};
+
+extern struct IsExist_return IsExist(GoString p0);
+
 #ifdef __cplusplus
 }
 #endif

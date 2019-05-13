@@ -4,7 +4,9 @@ import (
 	"C"
 	"fmt"
 	"goLib/action"
-	"goLib/file"
+	"os"
+	_"io/ioutil"
+	"log"
 )
 
 func main() {
@@ -13,8 +15,14 @@ func main() {
 	SayHelloByte(b)
 	SayBye()
 	// file.IsExist("../test.txt")
-	file.IsExist("/Users/murphy/Desktop/test.txt")
+	// file.IsExist("/Users/murphy/Desktop/test.txt")
 }
+
+type LDError struct {
+	err error
+	code int
+}
+
 
 //export SayHello
 func SayHello(name string) {
@@ -30,4 +38,49 @@ func SayHelloByte(name []byte) {
 //export SayBye
 func SayBye() {
 	fmt.Println("func in Golang SayBye says: Bye!")
+}
+
+//export UserName
+func UserName(name string)(string,error) {
+	var n = name
+	fmt.Println("func in Golang SayBye says: Bye!")
+	err := fmt.Errorf("%s Not The King", n)
+	return n,err
+}
+//export FileExist
+func FileExist(filePath string) error {
+	if _, err := os.Stat(filePath); os.IsNotExist(err) {
+		return err
+	}
+	return nil
+}
+//export IsExist
+func IsExist(filePath string) (bool, error) {
+	if _, err := os.Stat(filePath); os.IsNotExist(err) {
+		return false,err
+	}
+	return true,nil
+}
+// // read dir
+// func LDReadDir(filePath string) ([]os.FileInfo, error) {
+// 	files, err := ioutil.ReadDir(filePath)
+// 	return files, err
+// }
+
+/**
+	create file
+*/
+func CreateFile(filePath string) LDError {
+	newFile, err := os.Create(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println(newFile)
+	newFile.Close()
+	var e LDError
+	if err != nil {
+		e.err = err
+		e.code = -101
+	}
+	return e
 }

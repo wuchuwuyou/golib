@@ -1,37 +1,44 @@
 # Golang 制作静态库
 
-之前一直在考虑一个通用库的方法，也算是拓展自己的知识面吧
+之前一直在考虑一个通用库的方法，也算是拓展自己的知识面吧。一直在看Go相关的东西，发现了一个go实现的[百度网盘](https://github.com/iikira/BaiduPCS-Go)，实现了跨平台的方案，想动手实现一下使用go打包静态、动态库，实现跨平台方案。
+主要思路就是Golang源码，打包成静态库，供使用
 
-一只在看Go相关的东西，今天就动手实现一下使用go打包静态、动态库，实现跨平台方案
+# IDE
+[VSCode](https://code.visualstudio.com/)
 
+[GoLand](https://www.jetbrains.com/go/)
 
+由于GFW的原因，我们要设置下代理
+# 代理
+## 设置VSCode 代理
+` VSCode->首选项->设置->应用程序->代理服务器->Proxy`
 
+    "http.proxy": "http://127.0.0.1:1087",
 
-/*
+## 设置终端代理 
+    export http_proxy=http://127.0.0.1:1087;
+    export https_proxy=http://127.0.0.1:1087;
 
+# 包管理
 
-设置VSCode 代理
-
-"http.proxy": "http://127.0.0.1:1087",
-"http.proxyStrictSSL": false,
-"http.proxyAuthorization":null
-
-
-
-设置终端代理 export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;
+Go Module 
 
 module golib
 
+### go.mod
 go 1.12
 
 
 require (
-github.com/spf13/viper v1.3.2  /// 外部package
-goLib/action v0.0.0-00010101000000-000000000000 // 本地package
+    github.com/spf13/viper v1.3.2  /// 外部package
+    goLib/action v0.0.0-00010101000000-000000000000 // 本地package
 )
 
 replace goLib/action => ./action 
 
+# 静态库
+
+## .a静态库
 
 /// 编译成 .a 和头文件
 go build -buildmode=c-archive -o main.a
