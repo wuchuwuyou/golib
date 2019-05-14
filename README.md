@@ -10,6 +10,7 @@
 
 由于GFW的原因，我们要设置下代理
 # 代理
+以下是我的SS的设置，如果有不一样的参考 [VSCode官方文档](https://code.visualstudio.com/docs/setup/network)
 ## 设置VSCode 代理
 ` VSCode->首选项->设置->应用程序->代理服务器->Proxy`
 
@@ -18,7 +19,7 @@
 ## 设置终端代理 
     export http_proxy=http://127.0.0.1:1087;
     export https_proxy=http://127.0.0.1:1087;
-
+只当前窗口生效，关了就没了
 # 包管理
 
 Go Module 
@@ -36,7 +37,10 @@ require (
 
 replace goLib/action => ./action 
 
-# 静态库
+# 文件设置
+
+文件见设置 //export 名称
+# 手动静态库
 
 ## .a静态库
 
@@ -51,3 +55,9 @@ https://www.kancloud.cn/cattong/go_command_tutorial/261347
 
 https://my.oschina.net/mickelfeng/blog/2252565
 */
+
+# gomobile 
+
+go get golang.org/x/mobile/cmd/gomobile
+
+https://github.com/golang/mobile

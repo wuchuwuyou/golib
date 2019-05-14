@@ -3,16 +3,14 @@
 /* package golib */
 
 
-#line 1 "cgo-builtin-export-prolog"
+#line 1 "cgo-builtin-prolog"
 
 #include <stddef.h> /* for ptrdiff_t below */
 
 #ifndef GO_CGO_EXPORT_PROLOGUE_H
 #define GO_CGO_EXPORT_PROLOGUE_H
 
-#ifndef GO_CGO_GOSTRING_TYPEDEF
 typedef struct { const char *p; ptrdiff_t n; } _GoString_;
-#endif
 
 #endif
 
@@ -52,9 +50,7 @@ typedef double _Complex GoComplex128;
 */
 typedef char _check_for_64_bit_pointer_matching_GoInt[sizeof(void*)==64/8 ? 1:-1];
 
-#ifndef GO_CGO_GOSTRING_TYPEDEF
 typedef _GoString_ GoString;
-#endif
 typedef void *GoMap;
 typedef void *GoChan;
 typedef struct { void *t; void *v; } GoInterface;
@@ -69,19 +65,15 @@ extern "C" {
 #endif
 
 
-extern void SayHello(GoString p0);
+extern GoInterface Login(GoString p0, GoString p1);
 
-extern void SayHelloByte(GoSlice p0);
-
-extern void SayBye();
-
-/* Return type for UserName */
-struct UserName_return {
-	GoString r0;
+/* Return type for MetaData */
+struct MetaData_return {
+	GoInterface r0;
 	GoInterface r1;
 };
 
-extern struct UserName_return UserName(GoString p0);
+extern struct MetaData_return MetaData(GoString p0, GoString p1);
 
 extern GoInterface FileExist(GoString p0);
 
@@ -92,6 +84,16 @@ struct IsExist_return {
 };
 
 extern struct IsExist_return IsExist(GoString p0);
+
+/* Return type for ReadDir */
+struct ReadDir_return {
+	GoSlice r0;
+	GoInterface r1;
+};
+
+extern struct ReadDir_return ReadDir(GoString p0);
+
+extern GoInterface CreateFile(GoString p0);
 
 #ifdef __cplusplus
 }
