@@ -29,6 +29,13 @@ type Entry interface {
 	preNeid() string
 }
 //export MetaData
+/**
+ * @note 获取文件信息
+ * @params path,pathType string
+ * @param path 文件路径
+ * @param pathType 文件空间
+ * @return Entry,error
+*/
 func MetaData(path,pathType string) (Entry,error) {
 	var entry Entry
 	log.Println(entry)
