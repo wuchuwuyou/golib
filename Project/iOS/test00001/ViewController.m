@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "golib.h"
+//#import <Framework/Framework.h>
+#import <Api/Api.h>
 
 @interface XXModel:NSObject
 @property (nonatomic,strong) NSString *name;
@@ -52,12 +54,27 @@
 //    m2 = nil;
 //    arr = nil;
 //    NSLog(@"%@",m1);
-    printf("This is a C Application.\n");
-    GoString name = {(char*)"King", 4};
-    SayHello(name);
-    GoSlice buf = {(void*)"King", 4, 4};
-    SayHelloByte(buf);
-    SayBye();
+//    printf("This is a C Application.\n");
+//    GoString name = {(char*)"King", 4};
+//    SayHello(name);
+//    GoSlice buf = {(void*)"King", 4, 4};
+//    SayHelloByte(buf);
+//    SayBye();
+    NSString *path = NSHomeDirectory();
+    BOOL isEx = NO;
+    NSError *error = nil;
+//    FrameworkIsExist(@"/Users/murphy/Desktop/test1.txt", &isEx, &error);
+//    NSLog(@"%@,%@",@(isEx),error);
+////
+//    error = nil;
+//    FrameworkIsExist(@"/Users/murphy/Desktop/test10.txt", &isEx, &error);
+//    NSLog(@"%@,%@",@(isEx),error);
+//    error = nil;
+//    FrameworkIsExist(path, &isEx, &error);
+//    NSLog(@"%@,%@",@(isEx),error);
+    NSString *name = ApiLogin(@"/Users/murphy/Desktop/test10.txt", &error);
+    NSLog(@"%@,%@",name,error);
+
 }
 
 

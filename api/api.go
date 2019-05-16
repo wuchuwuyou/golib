@@ -1,22 +1,43 @@
 package api
 
 import (
-	"C"
 	"encoding/json"
-	"fmt"
-
-	"github.com/valyala/fasthttp"
-)
-import (
 	"errors"
+	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
+
+	"github.com/valyala/fasthttp"
 )
 
 var (
 	sessionId string
 )
+
+//export Entry
+type Entry interface {
+	path() string
+	pathType() string
+	rev() string
+	neid() string
+	preNeid() string
+}
+
+//export MetaData
+/**
+ * @note 获取文件信息
+ * @params path,pathType string
+ * @param path 文件路径
+ * @param pathType 文件空间
+ * @return Entry,error
+ */
+func MetaData(path, pathType string) (string, error) {
+
+	log.Printf(path, pathType)
+	return "", nil
+}
 
 //export Login
 //params username string,password string
@@ -81,24 +102,24 @@ func UploadFile(filePath, path, pathType, neid, from string, overwrite bool) err
 		var err error = errors.New("请先登录")
 		return err
 	}
-	fmt.Printf(filePath, path, pathType, neid, from, overwrite)
+	fmt.Printf(filePath, path, pathType, neid, from, overwrite, "\n")
 	// http: //disk.yutong.com:10081/v2/files/databox/公交新能源产品部/01 电机控制模块/01 模块内部共享文档/15 安全质量-冯勇敢邵彭真/2 FEMA数据库（QM单、生产、市场质量问题）/QM单问题汇总/电机控制模块7月10日-19日QM单质量问题汇总.xlsx?X-LENOVO-SESS-ID=7bo5mj66dame2fcbaer9ju8ju4&path_type=ent&from=&neid=244881708&rev=1b94a030624cae83&action=&op_type="
 	url := "https://console.box.lenovo.com/v2/files/databox/"
 	url += path
 	url += "?"
 	url += "X-LENOVO-SESS-ID="
 	url += sessionId
-	url += "&pathType"
+	url += "&pathType="
 	url += pathType
 	if len(neid) > 0 {
-		url += "&neid"
+		url += "&neid="
 		url += neid
 	}
 	if len(from) > 0 {
-		url += "&from"
+		url += "&from="
 		url += from
 	}
-	url += "&overwrite"
+	url += "&overwrite="
 	url += strconv.FormatBool(overwrite)
 
 	doUpload(url, filePath)
@@ -130,6 +151,7 @@ func UploadFile(filePath, path, pathType, neid, from string, overwrite bool) err
 	return nil
 }
 func doUpload(url, filepath string) {
+	fmt.Printf("url:%s\npath:%s", url, filepath)
 	file, err := os.Open(filepath)
 	if err != nil {
 		panic(err)
@@ -139,7 +161,10 @@ func doUpload(url, filepath string) {
 	res, err := http.Post(url, "application/x-www-form-urlencoded", file) // 第二个参数用来指定 "Content-Type"
 	// resp, err := http.Post(Url, "image/jpeg", file)
 	if err != nil {
+		fmt.Println(err)
 		panic(err)
 	}
+	fmt.Printf("\nBody:%s", res.Body)
+	fmt.Printf("\nHeader:%s", res.Header)
 	defer res.Body.Close()
 }

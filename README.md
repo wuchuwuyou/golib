@@ -39,25 +39,45 @@ replace goLib/action => ./action
 
 # 文件设置
 
-文件见设置 //export 名称
-# 手动静态库
+> 函数可导设置 //export your_function_name
+> 要导出的文件中 引入 import “C”
+```golang
+//export SayHello
+func SayHello(name string) {
+    fmt.Printf("func in Golang SayHello says: Hello, %s!\n", name)
+}
 
-## .a静态库
+```
 
-/// 编译成 .a 和头文件
-go build -buildmode=c-archive -o main.a
+# 静态库&动态库
+我们需要在main包中导出C函数。对于C静态库构建方式来说，会忽略main包中的main函数，只是简单导出C函数。采用以下命令构建：
 
+静态库
+`$ go build -buildmode=c-archive -o number.a`
+动态库
+`$ go build -buildmode=c-shared -o number.so`
 
-https://books.studygolang.com/advanced-go-programming-book/ch2-cgo/ch2-06-static-shared-lib.html
-
-https://www.kancloud.cn/cattong/go_command_tutorial/261347
-
-
-https://my.oschina.net/mickelfeng/blog/2252565
-*/
+## 问题
+目前还不支持 struct 结构体的导出 `头大啊`
 
 # gomobile 
+目前只支持Android和iOS
+需要设置$GOPATH，并在$GOPATH的src中设置并打包 framework 
+下载 gomobile 支持
+`go get golang.org/x/mobile/cmd/gomobile`
 
-go get golang.org/x/mobile/cmd/gomobile
+在 $GOPATH/src 下创建自己要打包的package,然后执行
 
-https://github.com/golang/mobile
+`gomobile bind -target=ios framework`
+
+不同的framework里不能引入相同的文件，别问我怎么知道的
+
+# 参考
+- https://books.studygolang.com/advanced-go-programming-book/ch2-cgo/ch2-06-static-shared-lib.html
+- https://www.kancloud.cn/cattong/go_command_tutorial/261347
+- https://my.oschina.net/mickelfeng/blog/2252565
+- http://blog.ralch.com/tutorial/golang-sharing-libraries/
+- https://stackoverflow.com/questions/40573401/building-a-dll-with-go-1-7
+- https://books.studygolang.com/advanced-go-programming-book/ch2-cgo/ch2-06-static-shared-lib.html
+- https://github.com/golang/mobile
+- https://godoc.org/golang.org/x/mobile/cmd/gomobile

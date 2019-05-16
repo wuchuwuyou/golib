@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D2B5720227EDABA00333936 /* golib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2B571F227EDABA00333936 /* golib.a */; };
+		0D3D98E2228D359A0028D23E /* golib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3D98E0228D359A0028D23E /* golib.a */; };
 		0D82B2ED1FCD0FCB000D7B25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B2EC1FCD0FCB000D7B25 /* AppDelegate.m */; };
 		0D82B2EF1FCD0FCB000D7B25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D82B2EE1FCD0FCB000D7B25 /* Assets.xcassets */; };
 		0D82B2F21FCD0FCB000D7B25 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D82B2F01FCD0FCB000D7B25 /* MainMenu.xib */; };
@@ -15,8 +15,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D2B571E227EDABA00333936 /* golib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = golib.h; sourceTree = "<group>"; };
-		0D2B571F227EDABA00333936 /* golib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = golib.a; sourceTree = "<group>"; };
+		0D3D98E0228D359A0028D23E /* golib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = golib.a; path = ../../../golib.a; sourceTree = "<group>"; };
+		0D3D98E1228D359A0028D23E /* golib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = golib.h; path = ../../../golib.h; sourceTree = "<group>"; };
 		0D82B2E81FCD0FCB000D7B25 /* test001.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test001.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D82B2EB1FCD0FCB000D7B25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0D82B2EC1FCD0FCB000D7B25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D2B5720227EDABA00333936 /* golib.a in Frameworks */,
+				0D3D98E2228D359A0028D23E /* golib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +58,8 @@
 		0D82B2EA1FCD0FCB000D7B25 /* test001 */ = {
 			isa = PBXGroup;
 			children = (
-				0D2B571F227EDABA00333936 /* golib.a */,
-				0D2B571E227EDABA00333936 /* golib.h */,
+				0D3D98E0228D359A0028D23E /* golib.a */,
+				0D3D98E1228D359A0028D23E /* golib.h */,
 				0D82B2EB1FCD0FCB000D7B25 /* AppDelegate.h */,
 				0D82B2EC1FCD0FCB000D7B25 /* AppDelegate.m */,
 				0D82B2EE1FCD0FCB000D7B25 /* Assets.xcassets */,
@@ -273,12 +273,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = test001/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/test001",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangteng.test001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -290,12 +295,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = test001/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/test001",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangteng.test001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

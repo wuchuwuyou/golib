@@ -1,28 +1,41 @@
 package file
 
-// type FileError struct {
-// }
+import (
+	"io/ioutil"
+	"log"
+	"os"
+)
 
-// func (fe *FileError) Error() string {
-// 	return "文件错误"
-// }
+//export FileExist
+func FileExist(filePath string) error {
+	if _, err := os.Stat(filePath); os.IsNotExist(err) {
+		return err
+	}
+	return nil
+}
 
-// func IsExist(filePath string) (os.FileInfo, error) {
-// 	fileInfo, err := os.Stat(filePath)
-// 	log.Println(fileInfo.Name(), fileInfo.Size(), fileInfo.ModTime(), fileInfo.IsDir(), fileInfo.Mode(), fileInfo.Sys())
-// 	log.Println(err)
-// 	return fileInfo, err
-// }
-// func ReadDir(filePath string) ([]os.FileInfo, error) {
-// 	files, err := ioutil.ReadDir(filePath)
-// 	return files, err
-// }
-// func CreateFile(filePath string) (*os.File, error) {
-// 	newFile, err := os.Create("test.txt")
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
-// 	log.Println(newFile)
-// 	newFile.Close()
-// 	return newFile, err
-// }
+//export IsExist
+func IsExist(filePath string) (bool, error) {
+	if _, err := os.Stat(filePath); os.IsNotExist(err) {
+		return false, err
+	}
+	return true, nil
+}
+
+//export ReadDir
+func ReadDir(filePath string) ([]os.FileInfo, error) {
+	files, err := ioutil.ReadDir(filePath)
+	return files, err
+}
+
+//export CreateFile
+func CreateFile(filePath string) error {
+	newFile, err := os.Create(filePath)
+	if err != nil {
+		log.Fatal(err)
+		return err
+	}
+	log.Println(newFile)
+	newFile.Close()
+	return nil
+}
