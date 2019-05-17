@@ -70,7 +70,6 @@ func SayHello(name string) {
 
 `gomobile bind -target=ios framework`
 
-不同的framework里不能引入相同的文件，别问我怎么知道的
 
 # 参考
 - https://books.studygolang.com/advanced-go-programming-book/ch2-cgo/ch2-06-static-shared-lib.html
