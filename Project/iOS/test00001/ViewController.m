@@ -10,6 +10,7 @@
 #import "golib.h"
 //#import <Framework/Framework.h>
 #import <Api/Api.h>
+#import <Framework/Framework.h>
 
 @interface XXModel:NSObject
 @property (nonatomic,strong) NSString *name;

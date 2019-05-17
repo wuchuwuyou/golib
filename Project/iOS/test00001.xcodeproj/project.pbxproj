@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D2B571D227ED66B00333936 /* golib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2B571B227ED66A00333936 /* golib.a */; };
 		0D3D98EC228E4F9A0028D23E /* Api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3D98EB228E4F990028D23E /* Api.framework */; };
+		0D3D98EE228E5B110028D23E /* Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3D98ED228E5B110028D23E /* Framework.framework */; };
 		0D84CC7D20C6925C009A60BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D84CC7C20C6925C009A60BD /* AppDelegate.m */; };
 		0D84CC8020C6925C009A60BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D84CC7F20C6925C009A60BD /* ViewController.m */; };
 		0D84CC8320C6925C009A60BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D84CC8120C6925C009A60BD /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		0D2B571B227ED66A00333936 /* golib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = golib.a; sourceTree = "<group>"; };
 		0D2B571C227ED66A00333936 /* golib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = golib.h; sourceTree = "<group>"; };
 		0D3D98EB228E4F990028D23E /* Api.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Api.framework; sourceTree = "<group>"; };
+		0D3D98ED228E5B110028D23E /* Framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Framework.framework; sourceTree = "<group>"; };
 		0D84CC7820C6925C009A60BD /* test00001.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test00001.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D84CC7B20C6925C009A60BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0D84CC7C20C6925C009A60BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D2B571D227ED66B00333936 /* golib.a in Frameworks */,
+				0D3D98EE228E5B110028D23E /* Framework.framework in Frameworks */,
 				0D3D98EC228E4F9A0028D23E /* Api.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +91,7 @@
 		0D84CC6F20C6925C009A60BD = {
 			isa = PBXGroup;
 			children = (
+				0D3D98ED228E5B110028D23E /* Framework.framework */,
 				0D3D98EB228E4F990028D23E /* Api.framework */,
 				0D84CC7A20C6925C009A60BD /* test00001 */,
 				0D84CC9320C6925F009A60BD /* test00001Tests */,

@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "golib.h"
-#import <Framework/Framework.h>
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
@@ -40,7 +39,7 @@
     NSLog(@"%@",@(isExist));
     BOOL isEx = NO;
     NSError *error = nil;
-    FrameworkIsExist(@"/Users/murphy/Desktop/test1.txt", &isEx, &error);
+    
     NSLog(@"%@,%@",@(isEx),error);
     const char *path1 = [@"/Users/murphy/Desktop/test.txt" UTF8String];
     const char *path2 = [@"/Users/murphy/Desktop/test2.txt" UTF8String];
