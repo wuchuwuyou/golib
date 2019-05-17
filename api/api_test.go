@@ -1,18 +1,20 @@
 package api
 
 import (
-	"testing"
 	"log"
+	"testing"
 )
+
 func TestLogin(t *testing.T) {
-	err := Login("wangteng@lenovocloud.com","123456")
+	err := Login("Xxxx", "xxx")
 	if err != nil {
 		log.Println(err)
 	}
 }
+
 //params filePath, path, pathType, neid, from string, overwrite bool
 func TestUploadFile(t *testing.T) {
-	err := UploadFile("/Users/murphy/Desktop/test1.txt","123/test1.txt","self","","",true)
+	err := UploadFile("", "", "", "", "", true)
 	if err != nil {
 		log.Println(err)
 	}

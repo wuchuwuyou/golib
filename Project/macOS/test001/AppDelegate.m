@@ -63,9 +63,9 @@
 //
 //    [self print:CreateFile(p4)];
 
-    NSString *username = @"wangteng@lenovocloud.com";
+    NSString *username = @"username";
     GoString _username = {[username UTF8String],username.length};
-    NSString *password = @"123456";
+    NSString *password = @"password";
     GoString _password = {[password UTF8String],password.length};
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         GoInterface a = Login(_username, _password);

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D2B571D227ED66B00333936 /* golib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2B571B227ED66A00333936 /* golib.a */; };
 		0D3D98EC228E4F9A0028D23E /* Api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3D98EB228E4F990028D23E /* Api.framework */; };
 		0D3D98EE228E5B110028D23E /* Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3D98ED228E5B110028D23E /* Framework.framework */; };
 		0D84CC7D20C6925C009A60BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D84CC7C20C6925C009A60BD /* AppDelegate.m */; };
@@ -38,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D2B571B227ED66A00333936 /* golib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = golib.a; sourceTree = "<group>"; };
-		0D2B571C227ED66A00333936 /* golib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = golib.h; sourceTree = "<group>"; };
 		0D3D98EB228E4F990028D23E /* Api.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Api.framework; sourceTree = "<group>"; };
 		0D3D98ED228E5B110028D23E /* Framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Framework.framework; sourceTree = "<group>"; };
 		0D84CC7820C6925C009A60BD /* test00001.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test00001.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D2B571D227ED66B00333936 /* golib.a in Frameworks */,
 				0D3D98EE228E5B110028D23E /* Framework.framework in Frameworks */,
 				0D3D98EC228E4F9A0028D23E /* Api.framework in Frameworks */,
 			);
@@ -113,8 +109,6 @@
 		0D84CC7A20C6925C009A60BD /* test00001 */ = {
 			isa = PBXGroup;
 			children = (
-				0D2B571B227ED66A00333936 /* golib.a */,
-				0D2B571C227ED66A00333936 /* golib.h */,
 				0D84CC7B20C6925C009A60BD /* AppDelegate.h */,
 				0D84CC7C20C6925C009A60BD /* AppDelegate.m */,
 				0D84CC7E20C6925C009A60BD /* ViewController.h */,
