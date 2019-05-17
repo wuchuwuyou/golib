@@ -11,9 +11,25 @@
 #include "Universe.objc.h"
 
 
+@class ApiEntry;
+
 /**
- * export IsExist
+ * export Entry
+ */
+@interface ApiEntry : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@end
+
+/**
+ * export Login
  */
 FOUNDATION_EXPORT NSString* _Nonnull ApiLogin(NSString* _Nullable filePath, NSError* _Nullable* _Nullable error);
+
+// skipped function MetaData with unsupported parameter or return types
+
 
 #endif
